@@ -6,19 +6,29 @@ using System.Threading.Tasks;
 
 namespace Logistics
 {
-    abstract class Device
+    class Device
     {
 
-        private string serialNumber;
+        private string serialnumber;
         private string macAddress;
         private string model;
         private string deskey;
         private string wpakey;
 
 
-        public Device()
+        /*
+        public Device(string serialnumber)
         {
-            this.serialNumber = serialNumber;
+            this.serialnumber = serialnumber;
+
         }
+        */
+
+            /*
+        public string GetSerial()
+        {
+            return serialnumber;
+        }
+        */
     }
 }

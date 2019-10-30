@@ -15,33 +15,54 @@ namespace Logistics
         {
 
 
+            int switch_on;
+
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            /*
-            string filePath = @"C:\Users\jari\Documents\Koulu SEAMK 2019-2020\Olio-ohjelmointi\ooprojekti\";
-            string fileNameSerialnumbers = "serialnumber.txt";
-
-            System.IO.StreamReader file = new System.IO.StreamReader(filePath+fileNameSerialnumbers);
-            //System.IO.StreamWriter file2 = new System.IO.StreamReader(filePath + fileNameSerialnumbers);
-            */
-
-            Console.WriteLine("Anna etsittävän asiakkaan nimi");
-            string customerName = Console.ReadLine();
-
-            var connString = "Host=localhost;Username=warehouse;Password=never4get;Database=logistics";
-            using (var conn = new NpgsqlConnection(connString))
+            do
             {
-                conn.Open(); // Here we open connection
-                             // Here we define our SQL query
-                using (var cmd = new NpgsqlCommand("SELECT * FROM customer where custname=" + "'"+customerName+"'", conn))
-                using (var reader = cmd.ExecuteReader())
-                    // Let's loop through all fetched rows
-                    while (reader.Read())
-                        // Let's get the string value in the field 1
-                        Console.WriteLine($" {reader.GetString(1)} {reader.GetString(2)} {reader.GetString(3)} {reader.GetInt32(4)}");
-            }
+
+                Console.WriteLine("1 - Syötä uuden asiakkaan tiedot");
+                Console.WriteLine("2 - Listaa viimeiset 10 asiakasta");
+                Console.WriteLine("3 - Listaa viimeiset 10 laitetta");
+
+                Console.WriteLine("5 - Saapunut RMA");
+                Console.WriteLine("0 - Lopeta");
+
+                switch_on = int.Parse(Console.ReadLine());
+
+                switch (switch_on)
+                {
+                    //kysytään asiakastiedot
+                    case 1:
+                        Console.WriteLine("Asiakkaan nimi?");
+                        string nimi = Console.ReadLine();
+                        Console.WriteLine("Osoite?");
+                        string osoite=Console.ReadLine();
+                        Console.WriteLine("Kaupunki?");
+                        string kaupunki = Console.ReadLine();
+                        Console.WriteLine("Postinumero?");
+                        int postcode = int.Parse(Console.ReadLine());
+                        //Lisätään syötetyt asiakastiedot tietokantaan hyväksynnän jälkeen
+                        Customer newCustomer=new Customer(nimi, osoite, kaupunki, postcode);                        
+                        break;
+
+                    case 2:
+                       General asiakaslista = new General("customer");
+                        break;
+
+                    case 3:
+                        General laitelista = new General("device");
+                        break;
+
+                    default:
+                        break;
+                }
 
 
+
+
+            } while (switch_on > 0);
         }
     }
 }
