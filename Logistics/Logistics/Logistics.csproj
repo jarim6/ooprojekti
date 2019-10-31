@@ -74,9 +74,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customer.cs" />
+    <Compile Include="Insert.cs" />
     <Compile Include="Device.cs" />
-    <Compile Include="General.cs" />
+    <Compile Include="Search.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -9,10 +9,10 @@ using Npgsql;
 
 namespace Logistics
 {
-   class General
+   class Search
     {
         
-        public General(string tablename)
+        public Search(string type, string tablename)
         {
 
             var connString = "Host=localhost;Username=warehouse;Password=never4get;Database=logistics";
@@ -21,8 +21,9 @@ namespace Logistics
                 conn.Open(); // Here we open connection
                              // Here we define our SQL query
 
-
-                using (var cmd = new NpgsqlCommand("SELECT * FROM " + tablename + " order by 1 desc LIMIT '10' ", conn))
+                if (type == "read") 
+                { 
+                using (var cmd = new NpgsqlCommand("SELECT * FROM " + tablename + " order by 1 asc LIMIT '10' ", conn))
                 using (var reader = cmd.ExecuteReader())
                     // Let's loop through all fetched rows
                     while (reader.Read())
@@ -39,7 +40,7 @@ namespace Logistics
                             Console.WriteLine($"{reader.GetString(1)} {reader.GetString(2)} {reader.GetDate(6)}");
                         }
                 }
-            
+            }
 
         }
 

@@ -25,8 +25,10 @@ namespace Logistics
                 Console.WriteLine("1 - Syötä uuden asiakkaan tiedot");
                 Console.WriteLine("2 - Listaa viimeiset 10 asiakasta");
                 Console.WriteLine("3 - Listaa viimeiset 10 laitetta");
-
-                Console.WriteLine("5 - Saapunut RMA");
+                Console.WriteLine("4 - Etsi asiakkaan tiedot");
+                Console.WriteLine("5 - Lisää uusi laite"); 
+                Console.WriteLine("6 - Etsi laitteen tiedot");
+                Console.WriteLine("7 - RMA");
                 Console.WriteLine("0 - Lopeta");
 
                 switch_on = int.Parse(Console.ReadLine());
@@ -35,6 +37,7 @@ namespace Logistics
                 {
                     //kysytään asiakastiedot
                     case 1:
+                        string taulu = "customer";
                         Console.WriteLine("Asiakkaan nimi?");
                         string nimi = Console.ReadLine();
                         Console.WriteLine("Osoite?");
@@ -44,15 +47,41 @@ namespace Logistics
                         Console.WriteLine("Postinumero?");
                         int postcode = int.Parse(Console.ReadLine());
                         //Lisätään syötetyt asiakastiedot tietokantaan hyväksynnän jälkeen
-                        Customer newCustomer=new Customer(nimi, osoite, kaupunki, postcode);                        
+                        //Insert newCustomer=new Insert(nimi, osoite, kaupunki, postcode);                        
+                        new Insert(taulu, nimi, osoite, kaupunki, postcode);
                         break;
 
                     case 2:
-                       General asiakaslista = new General("customer");
+                        //Haetaan ja tulostetaan asiakaslista
+                        new Search("read", "customer");
                         break;
 
                     case 3:
-                        General laitelista = new General("device");
+                        //Haetaan ja tulostetaan laitelista
+                        new Search("read", "device");
+                        break;
+
+                    case 4:
+                        Console.WriteLine("Anna asiakkaan nimi");
+                        string etsinimi = Console.ReadLine();
+                        //TODO loputkin
+                        break;
+                    case 5:
+                        Console.WriteLine("Anna laitteen sarjanumero");
+                        string serialnumber= Console.ReadLine();
+                        Console.WriteLine("Anna laitteen MAC");
+                        string macAddress= Console.ReadLine();
+                        Console.WriteLine("Anna laitteen malli");
+                        string model= Console.ReadLine();
+                        Console.WriteLine("Anna laitteen 3DES-avain");
+                        string deskey= Console.ReadLine();
+                        Console.WriteLine("Anna laitteen WPA-avain");
+                        string wpakey= Console.ReadLine();
+                        //TODO
+                        break;
+
+                    case 6:
+                        //TODO
                         break;
 
                     default:
