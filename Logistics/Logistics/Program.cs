@@ -22,7 +22,7 @@ namespace Logistics
 
                 Console.WriteLine("1 - Syötä uuden asiakkaan tiedot");
                 Console.WriteLine("2 - Syötä uuden laitteen tiedot");
-                Console.WriteLine("3 - Syötä uusi RMA");
+                Console.WriteLine("3 - Tulosta vikakuvaus huoltolaitteesta");
                 Console.WriteLine("4 - Syötä uusi huoltoraportti");
                 Console.WriteLine("0 - Lopeta");
 
@@ -65,11 +65,15 @@ namespace Logistics
 
                     case 3:
                         Console.WriteLine("Syötä RMA numero");
+                        int rmanumber = int.Parse(Console.ReadLine());
+                        Rma newRMA = new Rma(rmanumber);
+                        //Console.WriteLine(newRMA.GetRmaDescription);
+                        Console.WriteLine(newRMA.GetRmaDescription(rmanumber));
+                        
 
                         break;
 
                     case 4:
-                        
                         //TODO
                         break;
 
