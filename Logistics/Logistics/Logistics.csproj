@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="Device.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="Maintenance.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rma.cs" />

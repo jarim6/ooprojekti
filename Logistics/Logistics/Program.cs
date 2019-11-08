@@ -43,7 +43,7 @@ namespace Logistics
                         Customer newCustomer = new Customer(nimi, osoite, kaupunki, postcode);
                         customerList.Add(newCustomer);
                         //Haetaan asiakkaan tiedot tietokannasta niin saadaan vahvistus, että tiedot tosiaan tallentui tietokantaan
-                        Console.WriteLine($"Asiakas {newCustomer.GetCustomerInfo(nimi)} luotu");
+                        Console.WriteLine($"Asiakas {newCustomer.GetCustomerInfo(nimi)} lisätty tietokantaan");
                         break;
 
                        
@@ -60,14 +60,14 @@ namespace Logistics
                         string wpakey = Console.ReadLine();
                         Device newDevice = new Device(serialnumber, macAddress, model, deskey, wpakey);
                         deviceList.Add(newDevice);
-                        Console.WriteLine($"Laite {newDevice.GetDeviceSerial(serialnumber)} luotu");
+                        Console.WriteLine($"Laite {newDevice.GetDeviceSerial(serialnumber)} lisätty tietokantaan");
                         break;
 
                     case 3:
                         Console.WriteLine("Syötä RMA numero");
                         int rmanumber = int.Parse(Console.ReadLine());
                         Rma newRMA = new Rma(rmanumber);
-                        //Console.WriteLine(newRMA.GetRmaDescription);
+                        //Haetaan vikaselostus
                         Console.WriteLine(newRMA.GetRmaDescription(rmanumber));
                         
 
@@ -77,8 +77,8 @@ namespace Logistics
                         //TODO
                         break;
 
-                       
-                   
+                    
+
                     default:
                         break;
                 }
@@ -91,8 +91,7 @@ namespace Logistics
                 Console.WriteLine($"Luotu asiakas { item.GetCustomerName()}");
             }
 
-           // Console.WriteLine("Seuraavat laitteet lisätty tietokantaan:");
-           //Tulostetaan lisätyt laitteet, koska voidaan tulostaa ne..
+           //Tulostetaan lisätyt laitteet, koska voidaan tulostaa ne.
             foreach (var item in deviceList)
             {
                 Console.WriteLine($"Laite {item.GetSerial()} lisätty tietokantaan");

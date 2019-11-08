@@ -15,21 +15,29 @@ namespace Logistics
         string description;
         int rmanumber;
 
+        
         public Rma(int rmanumber)
         {
             this.rmanumber = rmanumber;
         }
+        
 
         public string GetRmaDescription(int rmanumber)
         {
 
             using (var conn = new NpgsqlConnection(connString))
             {
-
-                conn.Open();
-                using (var cmd = new NpgsqlCommand($"SELECT issuedescription FROM rma where rmanumber='{rmanumber}'", conn))
-                description = (string)cmd.ExecuteScalar();
-                conn.Close();
+                try
+                {
+                    conn.Open();
+                }
+                finally
+                {
+                    using (var cmd = new NpgsqlCommand($"SELECT issuedescription FROM rma where rmanumber='{rmanumber}'", conn))
+                    description = (string)cmd.ExecuteScalar();
+                    conn.Close();
+                    
+                }
                 return description;
             }
         }

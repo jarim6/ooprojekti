@@ -39,7 +39,7 @@ namespace Logistics
             {
                 conn.Open(); // Avataan tietokantayhteys
                 //etsitään tietokannasta äsken luotu asiakas ja tallennetaan se customerName muuttujaan
-                using (var cmd = new NpgsqlCommand("SELECT custname, idcustomer as ID FROM customer where custname= " + "'"+customerName+"'", conn))
+                using (var cmd = new NpgsqlCommand("SELECT custname, idcustomer FROM customer where custname= " + "'"+customerName+"'", conn))
                 this.customerName += (string)cmd.ExecuteScalar();
                 conn.Close();
                 return customerName;
