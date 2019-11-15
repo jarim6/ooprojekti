@@ -32,6 +32,7 @@ namespace Logistics
                 switch (response)
                 {
                     case 1:
+                        Console.Clear();
                         Console.WriteLine("Asiakkaan nimi?");
                         string nimi = Console.ReadLine();
                         Console.WriteLine("Osoite?");
@@ -48,6 +49,7 @@ namespace Logistics
 
                        
                     case 2:
+                        Console.Clear();
                         Console.WriteLine("Anna laitteen sarjanumero");
                         string serialnumber = Console.ReadLine();
                         Console.WriteLine("Anna laitteen MAC");
@@ -64,6 +66,7 @@ namespace Logistics
                         break;
 
                     case 3:
+                        Console.Clear();
                         Console.WriteLine("Syötä RMA numero");
                         int rmanumber = int.Parse(Console.ReadLine());
                         Rma newRMA = new Rma(rmanumber);
@@ -74,7 +77,9 @@ namespace Logistics
                         break;
 
                     case 4:
+                        Console.Clear();
                         //TODO
+                        Console.WriteLine("Nothing here yet");
                         break;
 
                     
