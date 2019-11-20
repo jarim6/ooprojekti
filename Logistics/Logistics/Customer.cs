@@ -12,7 +12,6 @@ namespace Logistics
     {
 
         private string customerName;
-        //string connString = "Host=localhost;Username=warehouse;Password=never4get;Database=logistics";
         int count = 1;
 
         public Customer(string customerName, string osoite, string kaupunki, int postcode)

@@ -9,10 +9,9 @@ using Npgsql;
 
 namespace Logistics
 {
-    class Device
+    class Device : Connection
     {
         private string serialnumber;
-        string connString = "Host=localhost;Username=warehouse;Password=never4get;Database=logistics";
         int count = 1;
 
         public Device(string serialnumber, string macAddress, string model, string deskey, string wpakey)
@@ -26,7 +25,6 @@ namespace Logistics
                     using (var cmd = new NpgsqlCommand("SELECT iddevice FROM device ORDER BY iddevice DESC LIMIT 1", conn))
                     count += (int)cmd.ExecuteScalar();
 
-                    //using (var cmd = new NpgsqlCommand("INSERT INTO device (iddevice, serialnumber, mac, model, deskey, wpakey) VALUES (" + "'" + count + "'," + "'" + serialnumber + "'," + "'" + macAddress + "'," + "'" + model + "'," + "'" + deskey + "'" + "'" + wpakey + "'" + ")", conn))
                     using (var cmd = new NpgsqlCommand($"INSERT INTO device (iddevice, serialnumber, mac, model, deskey, wpakey) VALUES('{count}', '{serialnumber}', '{macAddress}', '{model}', '{deskey}', '{wpakey}')",conn))
                     cmd.ExecuteNonQueryAsync();
                     conn.Close();

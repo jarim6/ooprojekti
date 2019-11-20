@@ -26,6 +26,7 @@ namespace Logistics
                 Console.WriteLine("2 - Syötä uuden laitteen tiedot");
                 Console.WriteLine("3 - Tulosta vikakuvaus olemassa olevasta RMA huoltolaitteesta");
                 Console.WriteLine("4 - Luo uusi RMA");
+                Console.WriteLine("5 - Tee uusi huoltoraportti");
                 Console.WriteLine("0 - Lopeta");
 
                 response = int.Parse(Console.ReadLine());
@@ -80,24 +81,27 @@ namespace Logistics
 
                     case 4:
                         Console.Clear();
-                        //TODO
-                        Console.WriteLine("Syötä uusi RMA numero");
-                        rmanumber=int.Parse(Console.ReadLine());
                         Console.WriteLine("Syötä laitteen sarjanumero");
                         serialnumber =Console.ReadLine();
                         Console.WriteLine("Syötä vikakuvaus");
                         string description = Console.ReadLine();
-                        CreateRma newIncident = new CreateRma(rmanumber, description, serialnumber);
-
+                        CreateRma newIncident = new CreateRma(description, serialnumber);
+                        //jatkohifistelyihin tässä pitää vielä hakea tietokannasta tuo äsken generoitu 
+                        Console.WriteLine("RMA ID " + newIncident.GetRMANumber() + " luotu");
+                        Console.WriteLine("\n\n");
                         break;
 
 
 
                     case 5:
                         Console.Clear();
-                        //TODO
-                        Console.WriteLine("Nothing here yet");
-
+                        Console.WriteLine("Anna RMA numero");
+                        rmanumber = int.Parse(Console.ReadLine());
+                        Rma newRMADesc = new Rma(rmanumber);
+                        Console.WriteLine("Vikakuvaus: " +  newRMADesc.GetRmaDescription(rmanumber));
+                        Console.WriteLine("Kirjoita huoltotoimenpiteet");
+                        string report = Console.ReadLine();
+                        Maintenance newFix = new Maintenance(rmanumber, report);
                         break;
 
                     
