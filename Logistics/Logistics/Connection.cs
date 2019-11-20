@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace Logistics
 {
-    class Maintenance : Connection
+    abstract class Connection
     {
-
-        public Maintenance()
-        {
-        
-        }   
-
+        public string connString = "Host=localhost;Username=warehouse;Password=never4get;Database=logistics";
     }
 }

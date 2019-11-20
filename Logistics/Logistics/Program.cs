@@ -13,7 +13,9 @@ namespace Logistics
         static void Main(string[] args)
         {
 
+            int rmanumber;
             int response;
+            string serialnumber;
             List<Customer> customerList = new List<Customer>();
             List<Device> deviceList = new List<Device>();
 
@@ -22,8 +24,8 @@ namespace Logistics
 
                 Console.WriteLine("1 - Syötä uuden asiakkaan tiedot");
                 Console.WriteLine("2 - Syötä uuden laitteen tiedot");
-                Console.WriteLine("3 - Tulosta vikakuvaus huoltolaitteesta");
-                Console.WriteLine("4 - Syötä uusi huoltoraportti");
+                Console.WriteLine("3 - Tulosta vikakuvaus olemassa olevasta RMA huoltolaitteesta");
+                Console.WriteLine("4 - Luo uusi RMA");
                 Console.WriteLine("0 - Lopeta");
 
                 response = int.Parse(Console.ReadLine());
@@ -51,7 +53,7 @@ namespace Logistics
                     case 2:
                         Console.Clear();
                         Console.WriteLine("Anna laitteen sarjanumero");
-                        string serialnumber = Console.ReadLine();
+                        serialnumber = Console.ReadLine();
                         Console.WriteLine("Anna laitteen MAC");
                         string macAddress = Console.ReadLine();
                         Console.WriteLine("Anna laitteen malli");
@@ -68,18 +70,34 @@ namespace Logistics
                     case 3:
                         Console.Clear();
                         Console.WriteLine("Syötä RMA numero");
-                        int rmanumber = int.Parse(Console.ReadLine());
+                        rmanumber = int.Parse(Console.ReadLine());
                         Rma newRMA = new Rma(rmanumber);
+                        Console.WriteLine("\n\n");
                         //Haetaan vikaselostus
                         Console.WriteLine(newRMA.GetRmaDescription(rmanumber));
-                        
-
+                        Console.WriteLine("\n\n");
                         break;
 
                     case 4:
                         Console.Clear();
                         //TODO
+                        Console.WriteLine("Syötä uusi RMA numero");
+                        rmanumber=int.Parse(Console.ReadLine());
+                        Console.WriteLine("Syötä laitteen sarjanumero");
+                        serialnumber =Console.ReadLine();
+                        Console.WriteLine("Syötä vikakuvaus");
+                        string description = Console.ReadLine();
+                        CreateRma newIncident = new CreateRma(rmanumber, description, serialnumber);
+
+                        break;
+
+
+
+                    case 5:
+                        Console.Clear();
+                        //TODO
                         Console.WriteLine("Nothing here yet");
+
                         break;
 
                     

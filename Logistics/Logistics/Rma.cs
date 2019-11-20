@@ -8,11 +8,12 @@ using Npgsql;
 
 namespace Logistics
 {
-    class Rma
+    class Rma : Connection
     {
 
-        string connString = "Host=localhost;Username=warehouse;Password=never4get;Database=logistics";
+        //string connString = "Host=localhost;Username=warehouse;Password=never4get;Database=logistics";
         string description;
+        string idserial;
         int rmanumber;
 
         
@@ -41,6 +42,8 @@ namespace Logistics
                 return description;
             }
         }
+
+        
 
     }
 }

@@ -74,6 +74,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connection.cs" />
+    <Compile Include="CreateRma.cs" />
     <Compile Include="Device.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Maintenance.cs" />
