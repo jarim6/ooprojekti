@@ -15,7 +15,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Logistics.Customer">
-    <Position X="9.75" Y="2.25" Width="1.5" />
+    <Position X="9.75" Y="2.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAAAAAAAABAQAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>Customer.cs</FileName>
