@@ -31,6 +31,8 @@ namespace Logistics
 
                 response = int.Parse(Console.ReadLine());
 
+                //Testi
+                Console.WriteLine("Testi");
 
                 switch (response)
                 {
