@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 using System.IO;
 //using Npgsql;
 
+
 namespace Logistics
 {
     class Program
     {
         static void Main(string[] args)
         {
+
+
 
             int rmanumber;
             int response;
