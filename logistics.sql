@@ -18,18 +18,18 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
-DROP DATABASE logistics2;
+DROP DATABASE logistics;
 --
 -- TOC entry 2874 (class 1262 OID 25320)
 -- Name: logistics; Type: DATABASE; Schema: -; Owner: postgres
 --
 
-CREATE DATABASE logistics2 WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'English_Finland.1252' LC_CTYPE = 'English_Finland.1252';
+CREATE DATABASE logistics WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'English_Finland.1252' LC_CTYPE = 'English_Finland.1252';
 
 
-ALTER DATABASE logistics2 OWNER TO postgres;
+ALTER DATABASE logistics OWNER TO postgres;
 
-\connect logistics2
+\connect logistics
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
